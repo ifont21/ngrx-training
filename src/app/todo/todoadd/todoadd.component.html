@@ -1,3 +1,9 @@
-<p>
-  todoadd works!
-</p>
+<div class="Training-Todoadd--wrapper">
+  <div class="Training-Todoadd--form">
+    <form [formGroup]="form">
+        <label>description</label>
+        <input type="text" formControlName="description" />
+        <button (click)="onSubmit()">Create</button>    
+    </form>
+  </div>
+</div>

@@ -1,3 +1,11 @@
-<p>
-  todolist works!
-</p>
+<div class="Training-Todolist--wrapper" *ngFor="let todo of (todoListState | async).todos; let i = index">
+  <div class="Training-Todolist--description">{{todo.description}}</div>
+  <div class="Training-Todolist--status">
+    <select [(ngModel)]="todo.status" (ngModelChange)="onStatusChange($event,i, todo)">
+      <option value="PENDING">pending</option>
+      <option value="IN_PROGRESS">in progress</option>  
+      <option value="DONE">done</option>  
+    </select>
+  </div>
+  <div class="Training-Todolist--updated">{{todo.updatedAt ? todo.updatedAt : todo.createdAt}}</div>
+</div>

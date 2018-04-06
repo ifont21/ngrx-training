@@ -17,6 +17,18 @@ export function todoListReducer(state = initialState, action: TodoListActions.To
                 ...state,
                 todos: [...state.todos, action.payload]
             };
+        case TodoListActions.UPDATE_TODO:
+            const todo = state.todos[action.payload.index];
+            const updatedTodo = {
+                ...todo,
+                ...action.payload.todo
+            };
+            const todos = [...state.todos];
+            todos[action.payload.index] = updatedTodo;
+            return {
+                ...state,
+                todos: todos
+            };
         default:
             return state;
     }
