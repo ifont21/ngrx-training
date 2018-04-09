@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Todo } from '../shared/todo';
 import * as TodoListActions from '../store/todolist.component.actions';
+import * as fromApp from '../../app.reducers';
 
 @Component({
   selector: 'app-todo-add',
@@ -13,7 +14,7 @@ export class TodoaddComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor(private fb: FormBuilder, private store: Store<{ todoList: { todos: Todo[] } }>) { }
+  constructor(private fb: FormBuilder, private store: Store<fromApp.AppState>) { }
 
   ngOnInit() {
     this.form = this.fb.group({

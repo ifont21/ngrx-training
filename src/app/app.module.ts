@@ -7,8 +7,8 @@ import { AppComponent } from './app.component';
 import { TodoComponent } from './todo/todo.component';
 import { TodolistComponent } from './todo/todolist/todolist.component';
 import { TodoaddComponent } from './todo/todoadd/todoadd.component';
-import { todoListReducer } from './todo/store/todolist.component.reducers';
 import { CommonModule } from '@angular/common';
+import { reducers } from './app.reducers';
 
 
 @NgModule({
@@ -23,7 +23,7 @@ import { CommonModule } from '@angular/common';
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    StoreModule.forRoot({ todoList: todoListReducer })
+    StoreModule.forRoot(reducers)
   ],
   providers: [],
   bootstrap: [AppComponent]

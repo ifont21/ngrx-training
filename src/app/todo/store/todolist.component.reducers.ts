@@ -2,7 +2,11 @@ import { Action } from '@ngrx/store';
 import { Todo } from '../shared/todo';
 import * as TodoListActions from './todolist.component.actions';
 
-const initialState = {
+export interface State {
+    todos: Todo[];
+}
+
+const initialState: State = {
     todos: [
         new Todo('Make Coffee in the morning', 'IN_PROGRESS', new Date(), new Date()),
         new Todo('take the car out from the mall', 'PENDING', new Date(), new Date()),
@@ -28,6 +32,13 @@ export function todoListReducer(state = initialState, action: TodoListActions.To
             return {
                 ...state,
                 todos: todos
+            };
+        case TodoListActions.DELETE_TODO:
+            const oldTodos = state.todos;
+            oldTodos.splice(action.payload, 1);
+            return {
+                ...state,
+                todos: oldTodos
             };
         default:
             return state;

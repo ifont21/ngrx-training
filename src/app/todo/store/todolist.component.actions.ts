@@ -3,6 +3,7 @@ import { Todo } from '../shared/todo';
 
 export const ADD_TODO = 'ADD_TODO';
 export const UPDATE_TODO = 'UPDATE_TODO';
+export const DELETE_TODO = 'DELETE_TODO';
 
 export class AddTodo implements Action {
     readonly type = ADD_TODO;
@@ -16,4 +17,10 @@ export class UpdateTodo implements Action {
     constructor(public payload: { index: number, todo: Todo }) { }
 }
 
-export type TodoListActions = AddTodo | UpdateTodo;
+export class DeleteTodo implements Action {
+    readonly type = DELETE_TODO;
+
+    constructor(public payload: number) { }
+}
+
+export type TodoListActions = AddTodo | UpdateTodo | DeleteTodo;

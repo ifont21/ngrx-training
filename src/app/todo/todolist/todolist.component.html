@@ -6,6 +6,9 @@
       <option value="IN_PROGRESS">in progress</option>  
       <option value="DONE">done</option>  
     </select>
+    <div class="Training-Todolist--delete">
+      <a href="javascript:void(0)" (click)="onDelete(i)"><span>remove</span></a>
+    </div>
   </div>
   <div class="Training-Todolist--updated">{{todo.updatedAt ? todo.updatedAt : todo.createdAt}}</div>
 </div>
